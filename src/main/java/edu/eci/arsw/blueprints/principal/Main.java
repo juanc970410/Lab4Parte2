@@ -14,6 +14,7 @@ import edu.eci.arsw.blueprints.services.BlueprintsServices;
 import edu.eci.arsw.blueprints.*;
 import edu.eci.arsw.blueprints.filters.BlueprintFilter;
 import edu.eci.arsw.blueprints.filters.BlueprintFilterRedundance;
+import edu.eci.arsw.blueprints.filters.BlueprintFilterSub;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
 
@@ -46,8 +47,11 @@ public class Main {
         
         Point[] p3 = new Point[]{new Point(13,1), new Point(13,1), new Point(13, 1)};
         Blueprint bp3 = new Blueprint("YO", "name",p3);
-        BlueprintFilter bpf = new BlueprintFilterRedundance();
-        Blueprint bpres = bpf.filter(bp3);
-        System.out.println(bpres.getPoints());
+        BlueprintFilter bpfr = new BlueprintFilterRedundance();
+        Blueprint bpres1 = bpfr.filter(bp3);
+        System.out.println(bpres1.getPoints());
+        BlueprintFilter bpfs = new BlueprintFilterSub();
+        Blueprint bpres2 = bpfs.filter(bp3);
+        System.out.println(bpres2.getPoints());
     }
 }
