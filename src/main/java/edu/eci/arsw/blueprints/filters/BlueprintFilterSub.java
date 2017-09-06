@@ -18,7 +18,7 @@ public class BlueprintFilterSub implements BlueprintFilter{
 
     @Override
     public Blueprint filter(Blueprint bp) {
-        List<Point> points = new ArrayList<Point>();
+        List<Point> points = bp.getPoints();
         Blueprint rbp = new Blueprint(bp.getAuthor(), bp.getName());
         for (int i = 0; i < points.size(); i++) {
             if(i%2!=0){
