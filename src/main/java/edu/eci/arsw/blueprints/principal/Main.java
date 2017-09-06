@@ -12,6 +12,8 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import edu.eci.arsw.blueprints.services.BlueprintsServices;
 import edu.eci.arsw.blueprints.*;
+import edu.eci.arsw.blueprints.filters.BlueprintFilter;
+import edu.eci.arsw.blueprints.filters.BlueprintFilterRedundance;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
 
@@ -20,6 +22,7 @@ import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
  * @author 2103021
  */
 public class Main {
+    
     public static void main(String[] args) throws BlueprintNotFoundException, BlueprintPersistenceException{
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
         BlueprintsServices bps = ac.getBean(BlueprintsServices.class);
@@ -43,7 +46,8 @@ public class Main {
         
         Point[] p3 = new Point[]{new Point(13,1), new Point(13,1), new Point(13, 1)};
         Blueprint bp3 = new Blueprint("YO", "name",p3);
-        
-        
+        BlueprintFilter bpf = new BlueprintFilterRedundance();
+        Blueprint bpres = bpf.filter(bp3);
+        System.out.println(bpres.getPoints());
     }
 }
