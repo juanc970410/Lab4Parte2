@@ -25,6 +25,7 @@ public class BlueprintFilterRedundance implements BlueprintFilter{
                 rbp.addPoint(points.get(i));
             }
         }
+        rbp.addPoint(points.get(points.size()));
         return rbp;
     }
 }
