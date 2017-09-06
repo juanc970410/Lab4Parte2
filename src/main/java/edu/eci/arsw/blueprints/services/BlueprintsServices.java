@@ -9,6 +9,7 @@ import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
+import edu.eci.arsw.blueprints.persistence.impl.Tuple;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -41,7 +42,7 @@ public class BlueprintsServices {
      * @throws BlueprintNotFoundException if there is no such blueprint
      */
     public Blueprint getBlueprint(String author,String name) throws BlueprintNotFoundException{
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return bpp.getBlueprint(author,name);
     }
     
     /**
@@ -51,7 +52,7 @@ public class BlueprintsServices {
      * @throws BlueprintNotFoundException if the given author doesn't exist
      */
     public Set<Blueprint> getBlueprintsByAuthor(String author) throws BlueprintNotFoundException{
-        throw new UnsupportedOperationException("Not supported yet."); 
+        return(bpp.getBlueprintsByAuthor(author));
     }
     
 }
