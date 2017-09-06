@@ -20,14 +20,15 @@ public class BlueprintFilterRedundance implements BlueprintFilter{
 
     @Override
     public Blueprint filter(Blueprint bp) {
-        List<Point> points = new ArrayList<Point>();
+        List<Point> points = bp.getPoints();
         Blueprint rbp = new Blueprint(bp.getAuthor(), bp.getName());
         for (int i = 0; i < points.size()-1; i++) {
             if(!(points.get(i).equals(points.get(i+1)))){
                 rbp.addPoint(points.get(i));
             }
         }
-        rbp.addPoint(points.get(points.size()));
+        
+        rbp.addPoint(points.get(points.size()-1));
         return rbp;
     }
 }
